@@ -39,20 +39,24 @@ team.eat()
 
 // code example for New Binding
 //STEP 1: the animal function constructor i will create to use the 'new' binding on will have 'attributes': breed, color, weight, location.
-//STEP 2: create an 'animal' OBJECT with the attributes we can pass the attributes into the constructor function
-function Animal(attributes){
-    (this.breed = attributes.breed),
-    (this.color = attributes.color),
-    (this.weight = attributes.weight),
-    (this.location = attributes.location),
-},
 
+function Animal(attributes) {
+    ;(this.newBreed = attributes.breed),
+        (this.color = attributes.color),
+        (this.weight = attributes.weight),
+        (this.location = attributes.location),
+        console.log(this)
+}
+
+//STEP 2: create an 'animal' OBJECT with the attributes we can pass the attributes into the constructor function
 const bear = new Animal({
     breed: 'Black Bear',
     color: 'Black',
     weight: 400,
     location: 'Banff, Alberta'
 })
+
+console.log(bear)
 
 // Principle 4
 
@@ -61,7 +65,7 @@ const bear = new Animal({
 /*.call example for explict binding*/
 //step 1: create a function to explict bind .call (pick properties to bind .call)
 function personLocation() {
-    console.log(this.location)
+    console.log(this.location) //this will 'connect' or bind to person.location in the person object
 }
 
 //step 2: create an object with some properties
