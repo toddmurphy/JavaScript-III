@@ -33,7 +33,7 @@ const team = {
         )
     } //this closes the 'eat' method
 }
-team.eat()
+team.eat() // 'this' refers to 'team' object
 
 // Principle 3
 
