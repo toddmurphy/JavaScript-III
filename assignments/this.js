@@ -13,15 +13,67 @@ The four principles for the "this" key word are:
 // Principle 1
 
 // code example for Window Binding
+function sayHello(name) {
+    console.log(this)
+    return name
+}
+sayHello('Todd')
 
 // Principle 2
 
 // code example for Implicit Binding
+const team = {
+    team: 'Toronto Maple Leafs',
+    coach: 'Homer Simpson',
+    arena: 'Maple Leaf Gardens',
+    concessions: 'Beer',
+    eat: function() {
+        console.log(
+            `${this.coach} went to see the ${this.team} at ${this.arena} and had 15 ${this.concessions} which cost him $1,000!`
+        )
+    } //this closes the 'eat' method
+}
+team.eat()
 
 // Principle 3
 
 // code example for New Binding
+//STEP 1: the animal function constructor i will create to use the 'new' binding on will have 'attributes': breed, color, weight, location.
+//STEP 2: create an 'animal' OBJECT with the attributes we can pass the attributes into the constructor function
+function Animal(attributes){
+    (this.breed = attributes.breed),
+    (this.color = attributes.color),
+    (this.weight = attributes.weight),
+    (this.location = attributes.location),
+},
+
+const bear = new Animal({
+    breed: 'Black Bear',
+    color: 'Black',
+    weight: 400,
+    location: 'Banff, Alberta'
+})
 
 // Principle 4
 
 // code example for Explicit Binding
+
+/*.call example for explict binding*/
+//step 1: create a function to explict bind .call (pick properties to bind .call)
+function personLocation() {
+    console.log(this.location)
+}
+
+//step 2: create an object with some properties
+const person = {
+    first_name: 'Todd',
+    last_name: 'Murphy',
+    address: '123 Main St',
+    age: 94,
+    nickname: 'joker coder',
+    location: 'Halifax',
+    province: 'Nova Scotia'
+}
+
+//step 3: pass the object back into the example.call() function
+personLocation.call(person)
